@@ -29,11 +29,11 @@ public class ProductPriceService {
         // Fail-fast validation — ném exception ngay nếu input không hợp lệ
         validateProductId(productId);
 
-        logger.info("🔍 Cache MISS cho sản phẩm '{}' — truy vấn Database", productId);
+        logger.info(" Cache MISS cho sản phẩm '{}' — truy vấn Database", productId);
         Integer price = productRepository.findPriceById(productId);
 
         if (price == null) {
-            logger.warn("⚠️ Sản phẩm '{}' không tồn tại trong Database", productId);
+            logger.warn(" Sản phẩm '{}' không tồn tại trong Database", productId);
         }
 
         return price;
@@ -49,9 +49,9 @@ public class ProductPriceService {
         validateProductId(productId);
         validatePrice(newPrice);
 
-        logger.info("💰 Cập nhật giá sản phẩm '{}': {}đ — Cache sẽ bị evict", productId, newPrice);
+        logger.info(" Cập nhật giá sản phẩm '{}': {}đ — Cache sẽ bị evict", productId, newPrice);
         productRepository.updatePrice(productId, newPrice);
-        logger.info("✅ Đã cập nhật giá và evict cache cho sản phẩm '{}'", productId);
+        logger.info(" Đã cập nhật giá và evict cache cho sản phẩm '{}'", productId);
     }
 
    
