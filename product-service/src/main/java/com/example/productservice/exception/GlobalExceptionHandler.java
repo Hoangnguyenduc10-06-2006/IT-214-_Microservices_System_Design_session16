@@ -16,10 +16,7 @@ public class GlobalExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    /**
-     * Xử lý lỗi tham số không hợp lệ (productId null/rỗng, giá âm...).
-     * Trả về HTTP 400 Bad Request.
-     */
+   
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> handleIllegalArgument(IllegalArgumentException ex) {
         logger.warn(" [VALIDATION ERROR] {}", ex.getMessage());
