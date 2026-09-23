@@ -12,20 +12,20 @@ public class CustomCacheErrorHandler implements CacheErrorHandler {
 
     @Override
     public void handleCacheGetError(RuntimeException exception, Cache cache, Object key) {
-        logger.warn("⚠️ [CACHE GET ERROR] Cache: '{}', Key: '{}' — Fallback về Database. Lỗi: {}",
+        logger.warn(" [CACHE GET ERROR] Cache: '{}', Key: '{}' — Fallback về Database. Lỗi: {}",
                 cache.getName(), key, exception.getMessage());
     }
 
 
     @Override
     public void handleCachePutError(RuntimeException exception, Cache cache, Object key, Object value) {
-        logger.warn("⚠️ [CACHE PUT ERROR] Cache: '{}', Key: '{}' — Dữ liệu không được cache. Lỗi: {}",
+        logger.warn(" [CACHE PUT ERROR] Cache: '{}', Key: '{}' — Dữ liệu không được cache. Lỗi: {}",
                 cache.getName(), key, exception.getMessage());
     }
 
     @Override
     public void handleCacheEvictError(RuntimeException exception, Cache cache, Object key) {
-        logger.warn("⚠️ [CACHE EVICT ERROR] Cache: '{}', Key: '{}' — Cache có thể chứa dữ liệu cũ. Lỗi: {}",
+        logger.warn(" [CACHE EVICT ERROR] Cache: '{}', Key: '{}' — Cache có thể chứa dữ liệu cũ. Lỗi: {}",
                 cache.getName(), key, exception.getMessage());
     }
 
