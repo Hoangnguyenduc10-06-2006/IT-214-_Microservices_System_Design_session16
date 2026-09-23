@@ -14,7 +14,7 @@ public class ProductRepository {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductRepository.class);
 
-    // Giả lập database table
+   
     private final Map<String, Product> database = new ConcurrentHashMap<>();
 
 
